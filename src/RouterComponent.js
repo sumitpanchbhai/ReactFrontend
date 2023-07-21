@@ -8,7 +8,7 @@ import Profile from './components/Profile';
 export default function RouterComponent() {
   return (
     <div>
-        <Router>
+      <Router>
       <Routes>
       <Route exact path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
