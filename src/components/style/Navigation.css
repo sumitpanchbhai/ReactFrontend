@@ -5,14 +5,23 @@
     border: 2px solid black;
 }
 
-.nav-list-left{
-    /* display: flex; */
-    /* justify-self:left; */
+
+.left-nav-list{
+    display: flex;
+    justify-content: left;
 }
 
-.nav-list-right{
-    /* display: flex; */
-    /* justify-content: right; */
+.left-nav-list li{
+    margin-right: 100px;
+    color: white;
+    list-style: none;
 }
 
-
+.right-nav-list{
+    position: absolute;
+    right: 5px;
+}
+ .right-nav-list li{
+    color: red;
+    list-style: none;
+ }

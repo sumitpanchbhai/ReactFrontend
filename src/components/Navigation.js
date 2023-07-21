@@ -1,15 +1,21 @@
 import React from 'react'
 import './style/Navigation.css'
+import { BiLogIn } from "react-icons/bi";
+import { Link } from 'react-router-dom';
+
+
+// BiLogIn
 export default function Navigation() {
   return (
     <div>
       <div className='container-nav'>
         <nav>
-            <ul style={{display:'flex',justifyContent:'left'}}>
-                        <li style={{marginRight:'100px'}}>Home</li>
-                        <li style={{marginRight:'100px'}}>About</li>
-                <div style={{position:'absolute',right:'10px'}}>
-                        <li>Log Out</li>
+            <ul className='left-nav-list'>
+            <Link to={'/'}><li>Home</li> </Link>
+            <Link to={'/about'}><li>About</li></Link>
+            <Link to={'/profile'}><li>Profile</li></Link>
+                <div className='right-nav-list'>
+                  <Link to={'/login'}><li><BiLogIn size={32}/></li></Link>
                 </div>
             </ul>
         </nav>

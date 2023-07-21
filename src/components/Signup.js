@@ -98,7 +98,7 @@ export default function Signup() {
             Sign Up
           </button>
           </div>
-          <a href="/">Login Page</a>
+          <a href="/login">Login Page</a>
         </form>
       </div>
       

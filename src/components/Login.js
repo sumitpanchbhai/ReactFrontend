@@ -4,10 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { AiFillEye ,AiFillEyeInvisible} from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
   const [passwordshoIcon,setPasswordshoIcon] = useState(false)
+  const location = useNavigate();
+
 
     const [userDetail,setDetail] = useState({})
     function handleInput(event){
@@ -29,7 +32,7 @@ export default function Login() {
                 console.log('Error fetching data:', response.data.status);
                 if (response.data.status===true){
                   toast.success(`${response.data.message}` ,{position:'top-center'} )
-
+                  location('/');
                 }else{
                   toast.error(`${response.data.message}`,{position:'top-center'})
                 }
@@ -78,7 +81,7 @@ export default function Login() {
             Login
           </button>
           </div>
-          <a href='/about'>sign up?</a>
+          <a href='/signup'>sign up?</a>
           
         </form>
       </div>
