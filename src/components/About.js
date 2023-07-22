@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './style/About.css'
 export default function About() {
   return (
-    <div>
-      <h1>About page</h1>
+    <div className='main-conatiner'>
+      About page
     </div>
   )
 }

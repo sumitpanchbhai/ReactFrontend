@@ -1,9 +1,10 @@
 import React from 'react'
+import './style/Profile.css'
 
 export default function Profile() {
   return (
-    <div>
-      <h1>Profile page</h1>
+    <div className='main-div'>
+      Profile page
     </div>
   )
 }

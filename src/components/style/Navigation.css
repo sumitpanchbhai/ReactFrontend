@@ -1,27 +1,38 @@
 
 .container-nav{
-    height: auto;
-    background-color: gray;
-    border: 2px solid black;
+    /* background-color: rgb(50, 50, 52); */
+    width: 100%;
 }
 
 
 .left-nav-list{
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
 }
 
 .left-nav-list li{
-    margin-right: 100px;
-    color: white;
+    margin-right: 2rem;
     list-style: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    &:hover{
+        font-size: 1.3rem;
+    }
+
+}
+
+.icon-field{
+    margin-right:0.5dvw;
+    &:hover{
+        color: red;
+    }
 }
 
 .right-nav-list{
     position: absolute;
-    right: 5px;
 }
- .right-nav-list li{
+ /* .right-nav-list li{
     color: red;
     list-style: none;
- }
+ } */
