@@ -26,7 +26,7 @@ export default function Signup() {
         }
         else if (userDetail.password===userDetail.confirmpassword && userDetail.newusername!==undefined && userDetail.email!==undefined){
 
-            axios.post('http://192.168.2.132:8000/userRegestration',userDetail)
+            axios.post('http://192.168.2.60:5000/userRegestration',userDetail)
         .then(response => {
           console.log('Error fetching data:', response.data.status);
           if (response.data.status===true){

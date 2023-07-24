@@ -5,7 +5,7 @@ import Signup from './components/Signup';
 import Navigation from './components/Navigation';
 import About from './components/About';
 import Profile from './components/Profile';
-import Home from './components/Home'
+import Home2 from './components/Home2'
 export default function RouterComponent() {
   return (
     <div>
@@ -13,7 +13,7 @@ export default function RouterComponent() {
       <Routes>
       <Route exact path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
-      <Route path='/' element={<><Navigation/><Home/></>} />
+      <Route path='/' element={<><Navigation/><Home2/></>} />
       <Route path='/about' element={<><Navigation/><About/></>}/>
       <Route path='/profile' element={<><Navigation/><Profile/></>}/>
       </Routes>

@@ -5,7 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { AiFillEye ,AiFillEyeInvisible} from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-
+import jwt_decode from 'jwt-decode';
+import WebSocketClient from './WebSocketClient';
+const {sendMessage} = WebSocketClient();
 
 export default function Login() {
   const [passwordshoIcon,setPasswordshoIcon] = useState(false)
@@ -14,24 +16,38 @@ export default function Login() {
 
     const [userDetail,setDetail] = useState({})
     function handleInput(event){
-        console.log(event.target.name,event.target.value)
+        // console.log(event.target.name,event.target.value)
         setDetail({...userDetail,[event.target.name]:event.target.value})
 
     }
 
-    function submitForm(event){
+    function decodeHAsh(token){
+      try {
+        const decodedToken = jwt_decode(token, process.env.JWT_SECRET_KEY);
+        console.log("decodedToken",decodedToken.userId); // This will print the decoded payload
+        sessionStorage.setItem('userID',decodedToken.userId)
+      } catch (error) {
+        console.error('Error decoding JWT token:', error);
+      }
+    }
+
+    async function submitForm(event){
         event.preventDefault();
-        console.log(userDetail)
+        console.log("userDetail")
         if (userDetail.password==='' || userDetail.username==='' || userDetail.password===undefined || userDetail.username===undefined){
           toast.error("please fill the input",{position:'top-center'})
       }
       if (userDetail.password!=='' && userDetail.username!=='' && userDetail.password!==undefined && userDetail.username!==undefined){
 
-            axios.post('http://192.168.2.132:8000/login',userDetail)
+          await  axios.post('http://192.168.2.60:5000/login',userDetail)
               .then(response => {
                 console.log('Error fetching data:', response.data.status);
                 if (response.data.status===true){
                   toast.success(`${response.data.message}` ,{position:'top-center'} )
+                  sessionStorage.setItem('Token', response.data.token);
+                  console.log(response.data.token)
+                  decodeHAsh(sessionStorage.getItem('Token'))
+                  sendMessage({'token':sessionStorage.getItem('Token')})
                   location('/');
                 }else{
                   toast.error(`${response.data.message}`,{position:'top-center'})
